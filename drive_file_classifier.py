@@ -16,14 +16,15 @@ SUBFOLDERS = config['SUBFOLDERS']
 PASTA_DUPLICADOS = config['PASTA_DUPLICADOS']
 KEYWORDS = config['KEYWORDS']
 IGNORED_WORDS = config['PALAVRAS_IGNORADAS']
-# Autenticação na API do Google Drive
-creds = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES
-)
-service = build('drive', 'v3', credentials=creds)
 
 # Função para listar arquivos do Google Drive com paginação
 def list_drive_files():
+    # Autenticação na API do Google Drive
+    creds = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES
+    )
+    service = build('drive', 'v3', credentials=creds)
+
     all_files = []
     page_token = None
     while True:
@@ -79,10 +80,6 @@ def identify_duplicates(input_csv, output_csv):
                     # Se os nomes forem muito parecidos, marcar como duplicata
                     if name_cleaned1 in name_cleaned2 or name_cleaned2 in name_cleaned1:
                         duplicates.append([id1, name1, size1, "Sim", id2])
-            
-            '''ref_id = files[0][1]
-            for name, file_id in files:
-                duplicates.append([file_id, name, size, "Sim", ref_id])'''
     
     with open(output_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -134,6 +131,6 @@ if __name__ == "__main__":
     duplicates_csv = "csv_files/possiveis_duplicatas.csv"
     classified_csv = "csv_files/arquivos_classificados.csv"
     
-   # save_file_list_csv(file_list, csv_file)
+    save_file_list_csv(file_list, csv_file)
     identify_duplicates(csv_file, duplicates_csv)
-    classify_files(duplicates_csv, classified_csv)
+    classify_files(csv_file, classified_csv)
