@@ -1,4 +1,4 @@
-
+##### Versão em Português logo abaixo / Portuguese version below/
 # 📌 Google Drive File Organizer
 
 This repository contains two Python scripts to organize files on Google Drive:
@@ -94,7 +94,9 @@ This will move files to their respective directories in Google Drive, including 
 This project is distributed under the MIT license.
 
 
-
+---
+---
+---
 
 # 📌 Google Drive File Organizer
 
@@ -129,7 +131,7 @@ pip install google-auth google-auth-httplib2 google-api-python-client pyyaml
 2. **Obtenha os IDs das pastas do Google Drive**:
    - Acesse a pasta no Google Drive
    - Copie o ID da URL (exemplo: `https://drive.google.com/drive/folders/PASTA_ID_AQUI`)
-3. **Configure o **`` em `secrets/`:
+3. **Configure o `config.yaml` em `secrets/`**:
 
 ```yaml
 SERVICE_ACCOUNT_FILE: "seu_arquivo_de_credenciais.json"
