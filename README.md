@@ -1,4 +1,4 @@
-
+##### Versão em Português logo abaixo / Portuguese version below/
 # 📌 Google Drive File Organizer
 
 This repository contains two Python scripts to organize files on Google Drive:
@@ -94,7 +94,9 @@ This will move files to their respective directories in Google Drive, including 
 This project is distributed under the MIT license.
 
 
-
+---
+---
+---
 
 # 📌 Google Drive File Organizer
 
